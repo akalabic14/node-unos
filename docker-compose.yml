@@ -10,7 +10,7 @@ services:
    ports:
      - "43306:3306"
    volumes:
-       - "./home/user/forma_unos/node-unos/unos_mysql_data:/var/lib/mysql"
+       - "./home/user/forma-unos/node-unos/unos_mysql_data:/var/lib/mysql"
    healthcheck:
        test: ["CMD", "nc", "-z", "127.0.0.1", "3306"]
        interval: 2s
