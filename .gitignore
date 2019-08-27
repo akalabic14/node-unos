@@ -1,4 +1,5 @@
-unos_mysql_data/
+/home/*
+/unos_mysql_data/*
 # Logs
 logs
 *.log
