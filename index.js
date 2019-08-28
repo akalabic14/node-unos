@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-
+const EntryModel = require('./models/entry')
 
 const sequelize = new Sequelize('db_unos', 'db_user', 'db_unos_pass', {
     host: 'localhost',
@@ -15,7 +15,11 @@ const sequelize = new Sequelize('db_unos', 'db_user', 'db_unos_pass', {
 
 )
 
+const Entry = EntryModel(sequelize, Sequelize)
+
 sequelize
 .authenticate()
 .then(() => console.log('conn success'))
 .catch(err => console.error('unable to connect', err))
+
+module.exports = { Entry}
