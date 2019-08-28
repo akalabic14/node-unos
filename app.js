@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
 
-    Entry.findAll()
+    Entry.findAll({limit: 5, order: [['time', 'DESC']]})
     .then(entries => {
         if(entries.length<5) {
             res.json(entries)
