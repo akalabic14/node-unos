@@ -22,4 +22,10 @@ sequelize
 .then(() => console.log('conn success'))
 .catch(err => console.error('unable to connect', err))
 
-module.exports = { Entry}
+sequelize
+.sync()
+.then(() =>console.log('Databas & tables created') )
+.catch(err => console.log('something wrong', err))
+
+
+module.exports =  Entry 
