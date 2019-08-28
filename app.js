@@ -9,8 +9,17 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 
 app.get('/', (req, res) => {
+
     Entry.findAll()
-    .then(entries => res.json(entries))
+    .then(entries => {
+        if(entries.length<5) {
+            res.json(entries)
+        }
+        else {
+            res.json(entries.slice(5))
+        }
+    })
+    .catch(err => console.log('some error', err))
 })
 
 app.post('/', (req,res) => {
