@@ -7,13 +7,15 @@ const Entry = require('./index')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+app.set('view engine', 'pug')
+
 
 app.get('/', (req, res) => {
 
     Entry.findAll({limit: 5, order: [['time', 'DESC']]})
     .then(entries => {
         if(entries.length<5) {
-            res.json(entries)
+            res.render('index', {title: entries[0].persons})
         }
         else {
             res.json(entries.slice(5))
