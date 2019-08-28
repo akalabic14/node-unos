@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     Entry.findAll({limit: 5, order: [['time', 'DESC']]})
     .then(entries => {
         if(entries.length<5) {
-            res.render('index', {title: entries[0].persons})
+            res.render('index', {entries: entries})
         }
         else {
             res.json(entries.slice(5))
