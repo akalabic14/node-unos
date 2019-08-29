@@ -17,11 +17,13 @@ const sequelize = new Sequelize('db_unos', 'db_user', 'db_unos_pass', {
 
 const Entry = EntryModel(sequelize, Sequelize)
 
+//connect to database
 sequelize
 .authenticate()
 .then(() => console.log('conn success'))
 .catch(err => console.error('unable to connect', err))
 
+//create database and table
 sequelize
 .sync()
 .then(() =>console.log('Databas & tables created') )

@@ -25,9 +25,8 @@ app.post('/', (req,res) => {
     let formData = req.body
     formData.time = new Date()
     Entry.create(formData)
-    
-    res.send('read')
-    
+    res.redirect('back')
+       
 
 
     console.log(req.body.name)})
