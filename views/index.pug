@@ -5,19 +5,21 @@ html
     body    
         div.container
             div.row
-                form(class="col s12")
+                form(class="col s12" action="/", method="post")
                     div.row
                         div(class = "input-field col6")
-                            input(placeholder = "fsdfdsf", id="id", type="text", class="validate")
                             label(for="id") ID
+                            input(placeholder = "", id="id", type="text" class="validate", name="id")
                     div.row    
                         div(class = "input-field col6")
-                            input(placeholder = "dsfsdf", id="persons", type="text", class="validate")
+                            input(placeholder = "", id="persons",type="text", class="validate", name="persons")
                             label(for="persons") Persons
                     div.row
                         div(class = "input-field col6")
-                            input(placeholder= "fdsfs", id="code", type="text", class="validate")
+                            input(placeholder= "" id="code", type="text" class="validate" name="code")
                             label(for="code") Code
+                    button(class="btn waves-effect waves-light" type="submit" name="action") Submit
+                    
 
             table
                 thead
