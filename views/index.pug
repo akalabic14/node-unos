@@ -12,19 +12,19 @@ html
                         
                             label(for="id") ID
                             br
-                            input(placeholder = "", id="id", type="text" class="validate", name="id")
+                            input(placeholder = "", id="id", type="text" class="validate", name="id", value = form.id)
                     div.row    
                         div(class = "input-field col6")
                            
                             label(for="persons") Persons
                             br
-                            input(placeholder = "", id="persons",type="text", class="validate", name="persons")
+                            input(placeholder = "", id="persons",type="text", class="validate", name="persons", value = form.persons)
                     div.row
                         div(class = "input-field col6")
                             
                             label(for="code") Code
                             br
-                            input(placeholder= "" id="code", type="text" class="validate" name="code")
+                            input(placeholder= "" id="code", type="text" class="validate" name="code", value = form.code)
 
                       
                     button(class="btn waves-effect waves-light" type="submit" name="action") Submit

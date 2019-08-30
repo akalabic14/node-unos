@@ -15,12 +15,12 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.set('view engine', 'pug')
 
-
+const emptyForm = {id: '', persons: '', code: ''}
 
 app.get('/', (req, res) => {
-
+    
     Entry.findAll({limit: 5, order: [['time', 'DESC']]})
-    .then(entries => res.render('index', {entries: entries}))
+    .then(entries => res.render('index', {entries: entries, form:emptyForm}))
     .catch(err => console.log('some error', err))
  })
 
@@ -31,25 +31,31 @@ app.post('/', [
     check('code').isLength({min: 1}).withMessage('Empty Code!')
 
 ],(req,res) => {
+
+    let form = {id: req.body.id,
+        persons: req.body.persons,
+        code: req.body.code}
     
-    var errors = validationResult(req)
+    let errors = validationResult(req)
 
     console.log(errors.array());
 
     if (!errors.isEmpty()) {
         
         Entry.findAll({limit: 5, order: [['time', 'DESC']]})
-        .then(entries => res.render('index', {entries: entries, errors: errors.array()}))
+        .then(entries => res.render('index', {entries: entries, errors: errors.array(), form: form}))
         
        
     } else {
       
-    let formData = req.body
-    formData.time = new Date()
-    Entry.create(formData)
-    res.redirect('back')}
-       
-})
+        let formData = req.body
+        formData.time = new Date()
+        Entry.create(formData)
+        Entry.findAll({limit: 5, order: [['time', 'DESC']]})
+        .then(entries => res.render('index', {entries: entries, form: emptyForm}))
+    
+    }}
+    )
 
 app.listen(3000, () => console.log('app is running'))
 
