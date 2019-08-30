@@ -47,12 +47,14 @@ html
                         th ID
                         th Persons
                         th Code
+                        th Time
                 tbody
                     for entry in entries
                         tr
                             td #{entry.id}
                             td #{entry.persons}
                             td #{entry.code}
+                            td #{entry.time.toUTCString()}
 
 
 

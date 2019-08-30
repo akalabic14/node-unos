@@ -1,7 +1,9 @@
 const Sequelize = require('sequelize');
 const EntryModel = require('./models/entry')
+require('dotenv').config()
 
-const sequelize = new Sequelize('db_unos', 'db_user', 'db_unos_pass', {
+
+const sequelize = new Sequelize(process.env.DB_BASE, process.env.DB_USER, process.env.DB_PASS, {
     host: 'localhost',
     port: 43306,
     dialect: 'mysql',
