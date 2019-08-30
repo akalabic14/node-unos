@@ -51,7 +51,7 @@ app.post('/', [
         //read and return data from db
         Entry.create(formData)
         .then(() => Entry.findAll({limit: 5, order: [['time', 'DESC']]}))
-        .then(entries => res.render('index', {entries: entries, form: emptyForm}))
+        .then(entries => res.render('index', {entries: entries, form: emptyForm, success: true}))
     }}
     )
 

@@ -1,3 +1,4 @@
+.env
 home/*
 unos_mysql_data/*
 # Logs
