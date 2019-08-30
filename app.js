@@ -26,9 +26,9 @@ app.get('/', (req, res) => {
 
 app.post('/', [
 
-    check('id').isLength({min: 1}).withMessage('Empty ID'),
-    check('persons').isLength({min: 1}).withMessage('Empty Persons'),
-    check('code').isLength({min: 1}).withMessage('Empty Code')
+    check('id').isLength({min: 1}).withMessage('Empty ID!'),
+    check('persons').isLength({min: 1}).withMessage('Empty Persons!'),
+    check('code').isLength({min: 1}).withMessage('Empty Code!')
 
 ],(req,res) => {
     

@@ -5,12 +5,6 @@ html
     body    
         div.container
             h4.center Submit data
-            ul
-                if errors
-                    for err in errors
-                        li #{err.msg}
-                else
-                    p Success
             div.row
                 form(class="col s6 offset-s3" action="/", method="post")
                     div.row
@@ -34,6 +28,18 @@ html
 
                       
                     button(class="btn waves-effect waves-light" type="submit" name="action") Submit
+                    
+                    div.row.card-panel
+                        ul
+                            if errors
+                                for err in errors
+                                    li
+                                        span.red-text #{err.msg}
+                                p
+                                    span.red-text Please, fill empty fields.
+                            else
+                                p
+                                    span.green-text Success
             
             div.divider
                     
