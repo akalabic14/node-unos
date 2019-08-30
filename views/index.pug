@@ -29,17 +29,14 @@ html
                       
                     button(class="btn waves-effect waves-light" type="submit" name="action") Submit
                     
-                    div.row.card-panel
+                    if errors
                         ul
-                            if errors
-                                for err in errors
+                            for err in errors
                                     li
                                         span.red-text #{err.msg}
-                                p
-                                    span.red-text Please, fill empty fields.
-                            else
-                                p
-                                    span.green-text Success
+                            p
+                                span.red-text Please, fill empty fields.
+                            
             
             div.divider
                     

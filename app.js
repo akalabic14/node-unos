@@ -30,7 +30,8 @@ app.post('/', [
     check('persons').isLength({min: 1}).withMessage('Empty Persons!'),
     check('code').isLength({min: 1}).withMessage('Empty Code!')
 
-],(req,res) => {
+  ],
+  (req,res) => {
 
     let form = {id: req.body.id,
         persons: req.body.persons,
@@ -51,9 +52,9 @@ app.post('/', [
         let formData = req.body
         formData.time = new Date()
         Entry.create(formData)
-        Entry.findAll({limit: 5, order: [['time', 'DESC']]})
+        .then(() => Entry.findAll({limit: 5, order: [['time', 'DESC']]}))
         .then(entries => res.render('index', {entries: entries, form: emptyForm}))
-    
+        
     }}
     )
 
